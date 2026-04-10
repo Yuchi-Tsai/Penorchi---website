@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penorchi - Where Ideas Take Flight</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
 </head>
-<body>
-  <h1>Hello World 👋</h1>
-  <p>This is my first website!</p>
+
+<body class="bg-black text-white font-[Poppins]">
+
+  <!-- HERO -->
+  <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+    <div>
+      <h1 class="text-5xl font-bold mb-6">
+        Where Ideas Take Flight
+      </h1>
+      <p class="text-lg text-gray-400 mb-6">
+        End-to-end marketing support for B2B companies and startups.
+      </p>
+
+      <div class="flex gap-4">
+        <a href="#" class="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold">
+          Explore Services
+        </a>
+        <a href="#" class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden md:flex items-center justify-center">
+      <div class="w-80 h-80 border border-yellow-500 flex items-center justify-center">
+        ✨ Logo
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 border-t border-gray-800">
+    <div>
+      <h2 class="text-4xl font-bold mb-6">The B2B Marketing Challenge</h2>
+      <p class="text-gray-400 mb-4">
+        Managing multiple vendors is expensive, slow, and inconsistent.
+      </p>
+      <p class="text-gray-400 mb-4">
+        Messaging becomes fragmented and results suffer.
+      </p>
+      <p class="text-gray-400">
+        What if one partner handled everything?
+      </p>
+    </div>
+
+    <div class="hidden md:flex items-center justify-center">
+      📊
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 px-6 max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10">What We Do</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-gray-700 p-6 rounded-lg">
+        📱
+        <h3 class="font-bold mt-4">Digital Marketing</h3>
+        <p class="text-gray-400">LinkedIn strategy and content.</p>
+      </div>
+
+      <div class="border border-gray-700 p-6 rounded-lg">
+        🎬
+        <h3 class="font-bold mt-4">Video & Photography</h3>
+        <p class="text-gray-400">Professional production services.</p>
+      </div>
+
+      <div class="border border-gray-700 p-6 rounded-lg">
+        🎨
+        <h3 class="font-bold mt-4">Design & Coordination</h3>
+        <p class="text-gray-400">Booth design and events.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 text-center border-t border-gray-800">
+    <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+    <a href="#" class="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold">
+      Contact Us
+    </a>
+  </section>
+
 </body>
 </html>
