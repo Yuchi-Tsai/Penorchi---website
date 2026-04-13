@@ -243,6 +243,18 @@
             color: var(--muted-foreground);
             font-size: 0.875rem;
         }
+
+        nav.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 2rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -253,7 +265,7 @@
                 <a href="index.html" class="logo">
                     <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto;">
                 </a>
-                <nav>
+                <nav id="navMenu">
                     <a href="index.html">Home</a>
                     <a href="services.html">Services</a>
                     <a href="case-studies.html">About</a>
@@ -398,5 +410,14 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    const btn = document.querySelector('.mobile-menu-btn');
+    const nav = document.getElementById('navMenu');
+
+    btn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+</script>
 </body>
 </html>
