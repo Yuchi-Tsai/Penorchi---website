@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Penorchi - Our Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --foreground: #FFFFFF;
+            --background: #000000;
+            --muted-foreground: #CCCCCC;
+            --border: #333333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 2rem 0;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        p {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .story-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        /* Origin Section */
+        .origin-box {
+            background-color: rgba(255, 215, 0, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .origin-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .founder-section {
+                grid-template-columns: 150px 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .founder-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            width: 200px;
+            height: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .founder-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .founder-content h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        .founder-content p {
+            font-size: 0.9rem;
+            color: var(--muted-foreground);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .founder-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Mission Section */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card {
+            background-color: rgba(255, 215, 0, 0.05);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .mission-card:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        .mission-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .mission-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e6c200;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(26, 26, 26, 0.3);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto;">
+                </a>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>About Penorchi</h1>
+                <p>Powerful content reshapes how a brand is seen, understood, and trusted</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section>
+            <div class="container story-section">
+                <h2>Our Story</h2>
+                <p>Penorchi was built on a simple idea: powerful content can reshape how a brand is seen, understood, and trusted. Behind every technical solution is a story—and when told right, it creates lasting impact.</p>
+                
+                <div class="origin-box">
+                    <h3>The Origin</h3>
+                    <p>The name Penorchi comes from “pen” and “orbit.” The pen represents the power of content—the ability to shape ideas, define value, and communicate meaning. The orbit reflects long-term influence—how strong messaging continues to circulate, build recognition, and keep a brand present in people’s minds.</p>
+                    <p>Together, it captures a simple belief: the right content doesn’t just inform—it brings a brand to life and sets it into motion for lasting visibility and impact.</p>
+                </div>
+
+                <p>Penorchi brings hands-on experience across industries including automotive, logistics, and wireless. This cross-sector background enables a deep understanding of how technical solutions can be translated into clear, compelling narratives for decision-makers.</p>
+
+                <p>By focusing on a digital-first approach—leveraging LinkedIn, targeted content, and SEO—Penorchi helps companies present their products professionally, communicate their value effectively, and connect with the right audience. The goal is not only to increase visibility, but to build trust and long-term brand recognition.</p>
+
+                <p>With a focus on affordability, flexibility, and customization, Penorchi supports businesses in reaching decision-makers and entering European markets in a more efficient and sustainable way.</p>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section>
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Operating Penorchi</h2>
+                <div class="founder-section">
+                    <div class="founder-image">
+                        <img src="image/about/Photo_Yu-Chi TSAI.jpg" alt="Yu-Chi TSAI (Cassie)">
+                    </div>
+                    <div class="founder-content">
+                        <h3>Yu-Chi TSAI (Cassie)</h3>
+                        <p>With extensive experience in B2B marketing and business development across automotive, logistics, and wireless industries, we bring deep expertise in translating technical solutions into compelling business narratives.</p>
+                        <p>At Penorchi, we combine strategic thinking with hands-on execution, ensuring every project delivers both creative excellence and measurable business results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section>
+            <div class="container">
+                <h2>Our Mission & Values</h2>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <h3>Affordability</h3>
+                        <p>We believe powerful marketing shouldn't require a massive budget. Our flexible, scalable solutions are designed for businesses at every growth stage.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Clarity</h3>
+                        <p>Technical excellence means nothing without clear communication. We translate complex solutions into compelling narratives that resonate with decision-makers.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Customization</h3>
+                        <p>Every business is unique. We tailor our approach to your specific goals, timeline, and budget—no one-size-fits-all solutions.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Trust</h3>
+                        <p>Long-term relationships matter. We're committed to delivering consistent, measurable results that build your brand's credibility over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Expand Your Brand's Reach?</h2>
+                <p>Let's work together to craft a marketing strategy that drives real results for your B2B business.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto; margin-bottom: 1rem;">
+                    <p style="font-size: 0.875rem;">Where ideas take flight. End-to-end marketing support for companies and startups.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Exhibition Coordination</a></li>
+                        <li><a href="services.html">Digital Marketing</a></li>
+                        <li><a href="services.html">Video & Photography</a></li>
+                        <li><a href="services.html">Marketing Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Penorchi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Penorchi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
