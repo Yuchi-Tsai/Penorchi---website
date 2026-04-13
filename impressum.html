@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Penorchi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --foreground: #FFFFFF;
+            --background: #000000;
+            --muted-foreground: #CCCCCC;
+            --border: #333333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .content-wrapper {
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+        }
+
+        /* Contact Info Box */
+        .contact-box {
+            background-color: rgba(255, 215, 0, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(26, 26, 26, 0.3);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto;">
+                </a>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="case-studies.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Impressum</h1>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="content-wrapper">
+            <div class="container">
+                <h2>Angaben gemäß § 5 TMG</h2>
+                <div class="contact-box">
+Penorchi
+c/o Yu-Chi Tsai
+Magdeburge Str.
+38350
+Germany
+                </div>
+
+                <h2>Kontakt</h2>
+                <p><strong>E-Mail:</strong> cassie.tsai@penorchi.com</p>
+
+                <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+                <div class="contact-box">
+Yu-Chi Tsai
+38350 Helmstedt
+Germany
+                </div>
+
+                <h2>Haftung für Inhalte</h2>
+                <p>Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+                <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen werden diese Inhalte umgehend entfernt.</p>
+
+                <h2>Haftung für Links</h2>
+                <p>Diese Website enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Daher kann ich für diese fremden Inhalte keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+
+                <p>Zum Zeitpunkt der Verlinkung wurden die Seiten auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zu diesem Zeitpunkt nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte nicht zumutbar.</p>
+
+                <h2>Urheberrecht</h2>
+                <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+                <h2>Hinweis</h2>
+                <p>Penorchi ist eine persönlich geführte Marke und keine eingetragene juristische Person oder Kapitalgesellschaft.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto; margin-bottom: 1rem;">
+                    <p style="font-size: 0.875rem;">Where ideas take flight. End-to-end marketing support for companies and startups.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Exhibition Coordination</a></li>
+                        <li><a href="services.html">Digital Marketing</a></li>
+                        <li><a href="services.html">Video & Photography</a></li>
+                        <li><a href="services.html">Marketing Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Penorchi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="case-studies.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Penorchi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
