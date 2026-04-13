@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Penorchi - Affordable Marketing Solutions</title>
+    <link rel="icon" href="image/logo/logo_only.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --background: #000000;
+            --foreground: #FFFFFF;
+            --card: #1A1A1A;
+            --border: #333333;
+            --muted-foreground: #A9A9A9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        main {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 0;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            color: #D1D5DB;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #D1D5DB;
+            font-size: 0.95rem;
+        }
+
+        .values-section {
+            margin-bottom: 4rem;
+        }
+
+        .values-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-card {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .value-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .value-benefits {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+
+        .value-benefits ul {
+            list-style: none;
+        }
+
+        .value-benefits li {
+            color: #D1D5DB;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .value-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .comparison-section {
+            margin-bottom: 4rem;
+        }
+
+        .comparison-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            color: #D1D5DB;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .feature {
+            font-weight: 600;
+            color: var(--foreground);
+        }
+
+        .comparison-table .check {
+            color: var(--primary);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .comparison-table .cross {
+            color: #808080;
+            text-align: center;
+        }
+
+        .cta-section {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #D1D5DB;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #FFC700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(26, 26, 26, 0.3);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        nav.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 2rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <img src="image/logo/logo_long.png" alt="Penorchi Logo" style="max-height: 80px;width: auto;">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-penorchi.html">Why Penorchi</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Why <span style="color: var(--primary);">Penorchi</span></h1>
+                <p>Discover what makes Penorchi the preferred choice for B2B companies and startups seeking affordable, comprehensive marketing solutions.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Services Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <h2>Our <span style="color: var(--primary);">Core Values</span></h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">💰</div>
+                        <h3>Affordable Pricing</h3>
+                        <p>Enterprise-quality marketing services without the enterprise price tag. We believe great marketing should be accessible to all businesses.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>No hidden fees</li>
+                                <li>Flexible packages</li>
+                                <li>Scalable solutions</li>
+                                <li>ROI-focused pricing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>End-to-End Solutions</h3>
+                        <p>From strategy to execution, we handle every aspect of your marketing needs. No need to juggle multiple vendors.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>Single point of contact</li>
+                                <li>Integrated campaigns</li>
+                                <li>Consistent messaging</li>
+                                <li>Streamlined workflow</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🏆</div>
+                        <h3>Specialized Expertise</h3>
+                        <p>Deep expertise in B2B marketing, exhibition strategies, video production, and digital campaigns. We know what works for your industry.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>Industry experience</li>
+                                <li>Proven methodologies</li>
+                                <li>Best practices</li>
+                                <li>Continuous learning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3>Fast Turnaround</h3>
+                        <p>We understand time is money. Our streamlined processes ensure quick delivery without compromising quality or attention to detail.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>Quick response times</li>
+                                <li>Efficient workflows</li>
+                                <li>Rapid deployment</li>
+                                <li>Agile methodology</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">👥</div>
+                        <h3>Dedicated Support</h3>
+                        <p>Your success is our success. We provide ongoing support and optimization to maximize your marketing ROI and adapt to market changes.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>Personal account manager</li>
+                                <li>Regular reporting</li>
+                                <li>Strategy optimization</li>
+                                <li>Proactive recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">📊</div>
+                        <h3>Proven Results</h3>
+                        <p>Our portfolio speaks for itself. We deliver measurable results that drive real business growth and help you achieve your marketing objectives.</p>
+                        <div class="value-benefits">
+                            <ul>
+                                <li>Case studies</li>
+                                <li>Measurable metrics</li>
+                                <li>Client testimonials</li>
+                                <li>Success stories</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-section">
+                <h2>Penorchi vs. Traditional <span style="color: var(--primary);">Agencies</span></h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Penorchi</th>
+                            <th>Traditional Agencies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature">Pricing</td>
+                            <td class="check">✓ Affordable</td>
+                            <td class="cross">✗ Expensive</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Service Range</td>
+                            <td class="check">✓ 15+ Services</td>
+                            <td class="cross">✗ Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Setup Time</td>
+                            <td class="check">✓ Quick Start</td>
+                            <td class="cross">✗ Long Onboarding</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Personal Support</td>
+                            <td class="check">✓ Dedicated Manager</td>
+                            <td class="cross">✗ Account Rotation</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Flexibility</td>
+                            <td class="check">✓ Scalable Plans</td>
+                            <td class="cross">✗ Fixed Contracts</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Turnaround</td>
+                            <td class="check">✓ Fast Delivery</td>
+                            <td class="cross">✗ Slow Process</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">B2B Expertise</td>
+                            <td class="check">✓ Specialized</td>
+                            <td class="cross">✗ Generalist</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Reporting</td>
+                            <td class="check">✓ Transparent</td>
+                            <td class="cross">✗ Opaque</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Partner with Penorchi?</h2>
+                <p>Let's discuss how we can help your business achieve its marketing goals with affordable, comprehensive solutions.</p>
+                <a href="contact.html" class="btn">Start Your Journey</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto; margin-bottom: 1rem;">
+                    <p style="font-size: 0.875rem;">Where ideas take flight. End-to-end marketing support for companies and startups.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Exhibition Coordination</a></li>
+                        <li><a href="services.html">Digital Marketing</a></li>
+                        <li><a href="services.html">Video & Photography</a></li>
+                        <li><a href="services.html">Marketing Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Penorchi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="why-penorchi.html">Why Penorchi</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Penorchi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const btn = document.querySelector('.mobile-menu-btn');
+    const nav = document.getElementById('navMenu');
+
+    btn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+</script>
+</body>
+</html>
