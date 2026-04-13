@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penorchi - Where Ideas Take Flight</title>
+    <title>Penorchi - End-to-End Marketing Support</title>
     <link rel="icon" href="image/logo/logo_only.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,13 +16,14 @@
         }
 
         :root {
-            --background: #000000;
-            --foreground: #ffffff;
             --primary: #FFD700;
             --primary-foreground: #000000;
-            --secondary: #1a1a1a;
-            --secondary-foreground: #e0e0e0;
-            --muted-foreground: #999999;
+            --background: #000000;
+            --foreground: #FFFFFF;
+            --card: #1A1A1A;
+            --card-foreground: #FFFFFF;
+            --muted: #808080;
+            --muted-foreground: #A9A9A9;
             --border: #333333;
         }
 
@@ -30,106 +31,357 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--background);
             color: var(--foreground);
+            scroll-behavior: smooth;
             line-height: 1.6;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
         .container {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: var(--background);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--foreground);
-            transition: opacity 0.3s;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-        }
-
-        .logo-box {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.125rem;
-            color: var(--primary-foreground);
-        }
-
-        .logo-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            font-size: 1.125rem;
-            display: none;
+            padding: 0 1rem;
         }
 
         @media (min-width: 640px) {
-            .logo-text {
-                display: inline;
+            .container {
+                padding: 0 1.5rem;
             }
         }
 
-        nav {
-            display: none;
-            gap: 2rem;
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
         }
 
-        @media (min-width: 768px) {
-            nav {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: #000000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
                 display: flex;
             }
         }
 
-        nav a {
+        .nav-links a {
+            color: #FFFFFF;
             text-decoration: none;
-            color: var(--muted-foreground);
-            font-size: 0.875rem;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        .mobile-menu-btn {
-            display: none;
+        .menu-toggle {
+            display: block;
             background: none;
             border: none;
-            color: var(--foreground);
+            color: var(--primary);
+            font-size: 1.5rem;
             cursor: pointer;
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background-color: #000000;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 50%;
+            filter: blur(3rem);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: #D1D5DB;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            background-color: #FFC700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+
+        .hero-image {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .hero-image {
+                display: block;
+                position: relative;
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 1rem;
+                border: 1px solid rgba(255, 215, 0, 0.2);
+                box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: #000000;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 50%;
+            filter: blur(3rem);
+            pointer-events: none;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #D1D5DB;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
         }
 
-        @media (max-width: 767px) {
-            .mobile-menu-btn {
-                display: block;
-            }
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: #D1D5DB;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -181,272 +433,79 @@
             font-size: 0.875rem;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        section.hero {
-            padding: 5rem 0 10rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section.hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .section-grid {
-                grid-template-columns: 1fr 1fr;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
         }
 
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 767px) {
-            h2 {
-                font-size: 1.875rem;
-            }
-        }
-
-        h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        p {
-            color: var(--muted-foreground);
-            margin-bottom: 1rem;
-        }
-
-        .hero-content h1 {
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-            }
-        }
-
-        button, .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-        }
-
-        .btn-primary:hover {
-            background-color: #e6c200;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
+        /* Utility Classes */
+        .text-primary {
             color: var(--primary);
         }
 
-        .btn-outline:hover {
-            background-color: rgba(255, 215, 0, 0.1);
-        }
-
-        .hero-image {
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (min-width: 768px) {
-            .hero-image {
-                display: flex;
-            }
-        }
-
-        .image-placeholder {
-            width: 100%;
-            max-width: 400px;
-            height: 384px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .image-placeholder-text {
+        .text-muted {
             color: var(--muted-foreground);
         }
 
-        /* Cards */
-        .card {
-            background-color: var(--background);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 2rem;
-            transition: all 0.3s;
+        .gap-4 {
+            gap: 1rem;
         }
 
-        .card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            margin-bottom: 1.5rem;
-        }
-
-        .card-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
-        }
-
-        .card-link:hover {
-            gap: 0.75rem;
-        }
-
-        /* Section Backgrounds */
-        .bg-secondary {
-            background-color: rgba(26, 26, 26, 0.2);
-        }
-
-        .section-center {
-            text-align: center;
-        }
-
-        .section-center h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .section-center > p {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .gap-8 {
             gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .market-challenge {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .market-challenge {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .challenge-text h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .challenge-text p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .challenge-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            transition: gap 0.3s;
-        }
-
-        .challenge-link:hover {
-            gap: 0.75rem;
         }
 
         .cta-section {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 3rem;
             text-align: center;
-            padding: 5rem 0;
-            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
 
         .cta-section h2 {
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            color: #D1D5DB;
+            margin-bottom: 2rem;
             font-size: 1.125rem;
         }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #FFC700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
 
         nav.open {
             display: flex;
@@ -462,159 +521,107 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="image/logo/logo_long.png" alt="Penorchi" style="max-height: 65px; width: auto;">
-                </a>
-                <nav id="navMenu">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <button class="mobile-menu-btn">☰</button>
+            <div class="nav-content">
+                <img src="image/logo/logo_long.png" alt="Penorchi Logo" style="max-height: 80px;width: auto;">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-penorchi.html">Why Penorchi</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="menu-toggle">☰</button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="hero-content">
-                        <h1>Where Ideas Take Flight</h1>
-                        <p>End-to-end marketing support designed to help B2B brands build visibility, engage buyers, and drive measurable growth.</p>
-                        <div class="button-group">
-                            <a href="services.html" class="btn btn-primary">Explore Services →</a>
-                            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-text">
+                    <div style="display: inline-block; background-color: rgba(255, 215, 0, 0.1); padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 1.5rem;">
+                        <span class="text-primary" style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">✨ Where Ideas Take Flight</span>
+                    </div>
+                    <h1>End-to-End <span class="highlight">Marketing</span> Support</h1>
+                    <p>From LinkedIn strategies to exhibition marketing, video production to booth design—Penorchi delivers affordable, comprehensive marketing solutions for B2B companies and startups ready to scale.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Started →</a>
+                        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Projects Delivered</div>
                         </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="image/logo/logo_only.png" alt="Penorchi Logo" style="max-width: 100%; height: auto; max-height: 400px;">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Challenge Section -->
-        <section>
-            <div class="container">
-                <div class="market-challenge">
-                    <div class="challenge-text">
-                        <h2>The B2B Marketing Challenge</h2>
-                        <p>Traditional B2B marketing, especially exhibitions and conferences, remains important, but often comes with high costs and rigid packages that limit flexibility. A single exhibition presence can exceed €20,000, frequently including elements that don't fully match a company's immediate needs.</p>
-                        <p>In today's fast-moving environment, many growing startups and companies face the challenge of balancing professional visibility with limited budgets and the need for more adaptable, targeted marketing approaches.</p>
-                        <a href="contact.html" class="challenge-link">Discover Our Solution →</a>
-                    </div>
-                    <div class="hero-image">
-                        <img src="image/home/challenge.jpg" alt="Exhibition Challenge" style="width: 100%; height: auto; border-radius: 0.5rem; object-fit: cover;">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Penorchi -->
-        <section class="bg-secondary">
-            <div class="container">
-                <div class="section-center">
-                    <h2>Why Choose Penorchi?</h2>
-                    <p>At Penorchi, we provide affordable and flexible marketing solutions tailored to your business. With a mix of creativity and strategy, we help B2B brands achieve real, measurable growth</p>
-                </div>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Affordable by Design</h3>
-                        <p>We deliver high-quality marketing support without the overhead of a full in-house team. You only pay for what you actually need.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">💼</div>
-                        <h3>Built for Flexibility</h3>
-                        <p>From LinkedIn operations to exhibition support, our services adapt to your short-term goals, timelines, and changing priorities.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">→</div>
-                        <h3>Customized for B2B Impact</h3>
-                        <p>We understand B2B challenges and craft tailored strategies that combine creative execution with strategic thinking to drive measurable results.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Services -->
-        <section>
-            <div class="container">
-                <div class="section-center">
-                    <h2>What We Do</h2>
-                    <p>End-to-end marketing support designed to help B2B brands build visibility, engage buyers, and drive measurable growth.</p>
-                </div>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">📱</div>
-                        <h3>Digital Marketing</h3>
-                        <p>LinkedIn strategies, content creation, and digital presence optimization.</p>
-                        <a href="services.html" class="card-link">Learn More →</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🎬</div>
-                        <h3>Video & Photography</h3>
-                        <p>Professional video production, editing, and photography services.</p>
-                        <a href="services.html" class="card-link">Learn More →</a>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🎨</div>
-                        <h3>Design & Coordination</h3>
-                        <p>Booth design, marketing materials, and exhibition coordination.</p>
-                        <a href="services.html" class="card-link">Learn More →</a>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="services.html" class="btn btn-outline">View All Services</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recent Case Studies -->
-        <section class="bg-secondary">
-            <div class="container">
-                <div class="section-center">
-                    <h2>Recent Success Stories</h2>
-                    <p>See how we've helped businesses achieve remarkable results.</p>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                    <div class="card">
-                        <h3>Tech Startup Growth Campaign</h3>
-                        <p>Increased LinkedIn engagement and generated qualified leads through strategic content and community building.</p>
-                        <div style="background-color: rgba(255, 215, 0, 0.1); border-radius: 0.5rem; padding: 0.75rem; display: inline-block;">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary); margin: 0;">45+ Leads | 150% Engagement ↑</p>
+                        <div class="stat">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Services Offered</div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <h3>Exhibition Success Story</h3>
-                        <p>Coordinated full exhibition presence with booth design, video production, and on-site sales support.</p>
-                        <div style="background-color: rgba(255, 215, 0, 0.1); border-radius: 0.5rem; padding: 0.75rem; display: inline-block;">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary); margin: 0;">300+ Visitors | 60+ Conversions</p>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
                         </div>
                     </div>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://www.linkedin.com/in/yu-chi-tsai/" class="btn btn-primary">View All Case Studies</a>
+                <div class="hero-image">
+                    <img src="image/service/exhibition.webp" alt="Penorchi Team Working">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Get Started?</h2>
-                <p>Let's discuss how Penorchi can help your business grow and succeed in the market.</p>
-                <a href="contact.html" class="btn btn-primary">Contact Penorchi Today →</a>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="text-primary">Services</span></h2>
+                <p>Comprehensive marketing solutions designed to help B2B companies and startups achieve their growth goals affordably and effectively.</p>
             </div>
-        </section>
-    </main>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔗</div>
+                    <h3>LinkedIn Digital Marketing</h3>
+                    <p>Strategic LinkedIn campaigns to build your professional brand, generate qualified leads, and establish thought leadership in your industry.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Exhibition Marketing Videos</h3>
+                    <p>Compelling video content specifically designed for exhibitions. From concept to final edit, we capture your brand story.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📷</div>
+                    <h3>Professional Photography</h3>
+                    <p>High-quality product and event photography that showcases your brand in the best light for marketing materials and exhibitions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎤</div>
+                    <h3>Expert Interview Shooting</h3>
+                    <p>Professional video interviews with industry experts and thought leaders to build credibility and engage your audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Marketing Material Design</h3>
+                    <p>Design booth visuals, brochures, and other marketing assets tailored to your brand and objectives.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Exhibition Coordination</h3>
+                    <p>End-to-end exhibition support including planning, booth design, material production, and on-site coordination.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Know More About <span style="color: var(--primary);">Penorchi </span>?</h2>
+                <p>Let's see our story and our vision to help you get faniliar with our goals with affordable, comprehensive solutions.</p>
+                <a href="about.html" class="btn">Penorchi Story</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -639,6 +646,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="why-penorchi.html">Why Penorchi</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -655,6 +663,28 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 
     <script>
     const btn = document.querySelector('.mobile-menu-btn');
