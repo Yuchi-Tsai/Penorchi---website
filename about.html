@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Penorchi - Our Story</title>
+    <title>About - Penorchi Marketing</title>
     <link rel="icon" href="image/logo/logo_only.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,169 +17,168 @@
 
         :root {
             --primary: #FFD700;
-            --foreground: #FFFFFF;
             --background: #000000;
-            --muted-foreground: #CCCCCC;
+            --foreground: #FFFFFF;
+            --card: #1A1A1A;
             --border: #333333;
+            --muted-foreground: #A9A9A9;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--background);
             color: var(--foreground);
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Header */
-        header {
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
         }
 
         .container {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        .header-content {
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            text-decoration: none;
+            height: 40px;
+        }
+
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo img {
-            height: 65px;
-            width: auto;
-        }
-
-        nav {
-            display: none;
             gap: 2rem;
+            list-style: none;
         }
 
-        @media (min-width: 768px) {
-            nav {
-                display: flex;
-            }
-        }
-
-        nav a {
+        .nav-links a {
+            color: #FFFFFF;
             text-decoration: none;
-            color: var(--muted-foreground);
-            font-size: 0.875rem;
             font-weight: 500;
+            font-size: 0.875rem;
+            text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--foreground);
-            cursor: pointer;
-            font-size: 1.5rem;
+        main {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
         }
 
-        @media (max-width: 767px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        /* Page Header */
         .page-header {
-            padding: 2rem 0;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 0;
         }
 
         .page-header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .page-header p {
             font-size: 1.125rem;
-        }
-
-        /* Main Content */
-        main {
-            padding: 3rem 0;
-        }
-
-        section {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--foreground);
-        }
-
-        p {
-            color: var(--muted-foreground);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        /* Story Section */
-        .story-section {
-            max-width: 1300px;
+            color: #D1D5DB;
+            max-width: 48rem;
             margin: 0 auto;
         }
 
-        .story-section p {
-            font-size: 1.05rem;
-            line-height: 1.9;
+        .about-section {
+            margin-bottom: 4rem;
         }
 
-        /* Origin Section */
-        .origin-box {
-            background-color: rgba(255, 215, 0, 0.05);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 4px;
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .origin-box h3 {
+        .about-section h2 .highlight {
             color: var(--primary);
-            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-item {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .value-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .value-item p {
+            color: #D1D5DB;
+            font-size: 0.95rem;
+            margin-bottom: 0 !important;
         }
 
         /* Founder Section */
@@ -240,53 +239,24 @@
             margin-bottom: 0;
         }
 
-        /* Mission Section */
-        .mission-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .mission-card {
-            background-color: rgba(255, 215, 0, 0.05);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .mission-card:hover {
-            border-color: var(--primary);
-            background-color: rgba(255, 215, 0, 0.1);
-        }
-
-        .mission-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .mission-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        /* CTA Section */
         .cta-section {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 3rem;
             text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
 
         .cta-section h2 {
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
         .cta-section p {
+            color: #D1D5DB;
+            margin-bottom: 2rem;
             font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
         }
 
         .btn {
@@ -295,17 +265,18 @@
             background-color: var(--primary);
             color: #000000;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
         }
 
         .btn:hover {
-            background-color: #e6c200;
-            transform: translateY(-2px);
+            background-color: #FFC700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         /* Footer */
@@ -371,57 +342,75 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <nav>
         <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="image/logo/logo_long.png" alt="Penorchi" style="height: 65px; width: auto;">
-                </a>
-                <nav id="navMenu">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <button class="mobile-menu-btn">☰</button>
+            <div class="nav-content">
+                <img src="image/logo/logo_long.png" alt="Penorchi Logo" style="max-height: 80px;width: auto;">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-penorchi.html">Why Penorchi</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>About Penorchi</h1>
-                <p>Powerful content reshapes how a brand is seen, understood, and trusted</p>
+        <div class="container">
+            <div class="page-header">
+                <h1>About <span style="color: var(--primary);">Penorchi</span></h1>
+                <p>Discover the story behind Penorchi and why we're passionate about helping B2B companies and startups succeed with affordable, comprehensive marketing solutions.</p>
             </div>
-        </section>
 
-        <!-- Our Story Section -->
-        <section>
-            <div class="container story-section">
-                <h2>Our Story</h2>
-                <p>Penorchi was built on a simple idea: powerful content can reshape how a brand is seen, understood, and trusted. Behind every technical solution is a story—and when told right, it creates lasting impact.</p>
-                
-                <div class="origin-box">
-                    <h3>The Origin</h3>
+            <div class="about-section">
+                <h2>Our <span class="highlight">Story</span></h2>
+                <div class="about-content">
+                    <p>Penorchi was built on a simple idea: powerful content can reshape how a brand is seen, understood, and trusted. Behind every technical solution is a story—and when told right, it creates lasting impact.</p>
                     <p>The name Penorchi comes from “pen” and “orbit.” The pen represents the power of content—the ability to shape ideas, define value, and communicate meaning. The orbit reflects long-term influence—how strong messaging continues to circulate, build recognition, and keep a brand present in people’s minds.</p>
                     <p>Together, it captures a simple belief: the right content doesn’t just inform—it brings a brand to life and sets it into motion for lasting visibility and impact.</p>
                 </div>
-
-                <p>Penorchi brings hands-on experience across industries including automotive, logistics, and wireless. This cross-sector background enables a deep understanding of how technical solutions can be translated into clear, compelling narratives for decision-makers.</p>
-
-                <p>By focusing on a digital-first approach—leveraging LinkedIn, targeted content, and SEO—Penorchi helps companies present their products professionally, communicate their value effectively, and connect with the right audience. The goal is not only to increase visibility, but to build trust and long-term brand recognition.</p>
-
-                <p>With a focus on affordability, flexibility, and customization, Penorchi supports businesses in reaching decision-makers and entering European markets in a more efficient and sustainable way.</p>
             </div>
-        </section>
 
-        <!-- Founder Section -->
-        <section>
-            <div class="container">
-                <h2 style="margin-bottom: 2rem;">Operating Penorchi</h2>
+            <div class="about-section">
+                <h2>Our <span class="highlight">Mission</span></h2>
+                <div class="about-content">
+                    <p><strong style="color: var(--primary);">Where ideas take flight.</strong></p>
+                    <p>Penorchi brings hands-on experience across industries including automotive, logistics, and wireless. This cross-sector background enables a deep understanding of how technical solutions can be translated into clear, compelling narratives for decision-makers.</p>
+                    <p>By focusing on a digital-first approach—leveraging LinkedIn, targeted content, and SEO—Penorchi helps companies present their products professionally, communicate their value effectively, and connect with the right audience. The goal is not only to increase visibility, but to build trust and long-term brand recognition.</p>
+                    <p>With a focus on affordability, flexibility, and customization, Penorchi supports businesses in reaching decision-makers and entering European markets in a more efficient and sustainable way.</p>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <h3>🎯 Client-Centric</h3>
+                            <p>Your success is our success. We put your goals first and work tirelessly to achieve them.</p>
+                        </div>
+                        <div class="value-item">
+                            <h3>💡 Innovative</h3>
+                            <p>We stay ahead of marketing trends and leverage the latest tools and techniques to give you a competitive edge.</p>
+                        </div>
+                        <div class="value-item">
+                            <h3>🤝 Transparent</h3>
+                            <p>We believe in open communication, honest reporting, and clear expectations from day one.</p>
+                        </div>
+                        <div class="value-item">
+                            <h3>📈 Results-Driven</h3>
+                            <p>Everything we do is focused on delivering measurable results and demonstrable ROI.</p>
+                        </div>
+                        <div class="value-item">
+                            <h3>⚡ Agile</h3>
+                            <p>We're flexible and adaptable, ready to pivot strategies based on performance and market changes.</p>
+                        </div>
+                        <div class="value-item">
+                            <h3>🌟 Excellence</h3>
+                            <p>We maintain the highest standards of quality in everything we deliver, from strategy to execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Operating <span class="highlight">Penorchi</span></h2>
                 <div class="founder-section">
                     <div class="founder-image">
                         <img src="image/about/Photo_Yu-Chi TSAI.jpg" alt="Yu-Chi TSAI (Cassie)">
@@ -439,44 +428,15 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Our Mission Section -->
-        <section>
-            <div class="container">
-                <h2>Our Mission & Values</h2>
-                <div class="mission-grid">
-                    <div class="mission-card">
-                        <h3>Affordability</h3>
-                        <p>We believe powerful marketing shouldn't require a massive budget. Our flexible, scalable solutions are designed for businesses at every growth stage.</p>
-                    </div>
-                    <div class="mission-card">
-                        <h3>Clarity</h3>
-                        <p>Technical excellence means nothing without clear communication. We translate complex solutions into compelling narratives that resonate with decision-makers.</p>
-                    </div>
-                    <div class="mission-card">
-                        <h3>Customization</h3>
-                        <p>Every business is unique. We tailor our approach to your specific goals, timeline, and budget—no one-size-fits-all solutions.</p>
-                    </div>
-                    <div class="mission-card">
-                        <h3>Trust</h3>
-                        <p>Long-term relationships matter. We're committed to delivering consistent, measurable results that build your brand's credibility over time.</p>
-                    </div>
-                </div>
+            <div class="cta-section">
+                <h2>Ready to Work with <span style="color: var(--primary);">Penorchi</span>?</h2>
+                <p>Let's discuss how our team can help you achieve your marketing goals with affordable, comprehensive solutions.</p>
+                <a href="contact.html" class="btn">Get In Touch</a>
             </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Expand Your Brand's Reach?</h2>
-                <p>Let's work together to craft a marketing strategy that drives real results for your B2B business.</p>
-                <a href="contact.html" class="btn">Get in Touch</a>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -499,6 +459,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="why-penorchi.html">Why Penorchi</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
