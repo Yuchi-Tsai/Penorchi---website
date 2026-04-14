@@ -339,6 +339,41 @@
             padding: 1rem;
             border-radius: 0.5rem;
         }
+
+        /* mobile menu button hidden on desktop */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        right: 2rem;
+        background: black;
+        border: 1px solid var(--border);
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -346,7 +381,10 @@
         <div class="container">
             <div class="nav-content">
                 <img src="image/logo/logo_long.png" alt="Penorchi Logo" style="max-height: 80px;width: auto;">
-                <ul class="nav-links">
+                
+                <button class="mobile-menu-btn">☰</button>
+                
+                <ul class="nav-links" id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="why-penorchi.html">Why Penorchi</a></li>
