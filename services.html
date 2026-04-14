@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Penorchi</title>
+    <title>Services - Penorchi Marketing</title>
     <link rel="icon" href="image/logo/logo_only.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,202 +17,240 @@
 
         :root {
             --primary: #FFD700;
-            --foreground: #FFFFFF;
             --background: #000000;
-            --muted-foreground: #CCCCCC;
+            --foreground: #FFFFFF;
+            --card: #1A1A1A;
             --border: #333333;
+            --muted-foreground: #A9A9A9;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--background);
             color: var(--foreground);
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Header */
-        header {
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
         }
 
         .container {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        .header-content {
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            text-decoration: none;
+            height: 40px;
+        }
+
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo img {
-            height: 65px;
-            width: auto;
-        }
-
-        nav {
-            display: none;
             gap: 2rem;
+            list-style: none;
         }
 
-        @media (min-width: 768px) {
-            nav {
-                display: flex;
-            }
-        }
-
-        nav a {
+        .nav-links a {
+            color: #FFFFFF;
             text-decoration: none;
-            color: var(--muted-foreground);
-            font-size: 0.875rem;
             font-weight: 500;
+            font-size: 0.875rem;
+            text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--foreground);
-            cursor: pointer;
-            font-size: 1.5rem;
+        main {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
         }
 
-        @media (max-width: 767px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        /* Page Title */
         .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
             padding: 4rem 0;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
         }
 
         .page-header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .page-header p {
             font-size: 1.125rem;
+            color: #D1D5DB;
+            max-width: 48rem;
+            margin: 0 auto;
         }
 
-        /* Service Sections */
-        .service-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border);
+        .services-section {
+            margin-bottom: 4rem;
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .services-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--foreground);
+        }
+
+        .services-section h2 .highlight {
+            color: var(--primary);
+        }
+
+        .service-item {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .service-header {
+            display: flex;
             align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .service-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        .service-section:nth-child(even) .service-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .service-section:nth-child(even) .service-image {
-            order: 2;
-        }
-
-        .service-section:nth-child(even) .service-content {
-            order: 1;
-        }
-
-        @media (max-width: 768px) {
-            .service-section:nth-child(even) .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-section:nth-child(even) .service-image {
-                order: 1;
-            }
-
-            .service-section:nth-child(even) .service-content {
-                order: 2;
-            }
-        }
-
-        .service-content h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .service-content p {
-            font-size: 1rem;
-            color: var(--muted-foreground);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .service-result {
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
             background-color: rgba(255, 215, 0, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 4px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
         }
 
-        .service-result h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+        .service-item h3 {
+            font-size: 1.5rem;
             margin-bottom: 0.75rem;
+        }
+
+        .service-item p {
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-details {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .service-details h4 {
+            font-family: 'Poppins', sans-serif;
             color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .service-result p {
+        .service-details ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-details ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .service-details li {
+            color: #D1D5DB;
             font-size: 0.95rem;
-            color: var(--muted-foreground);
-            margin-bottom: 0;
-        }
-
-        .service-image {
+            padding-left: 1.5rem;
             position: relative;
-            overflow: hidden;
-            border-radius: 8px;
         }
 
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .service-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #D1D5DB;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #FFC700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         /* Footer */
@@ -264,6 +302,27 @@
             font-size: 0.875rem;
         }
 
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0.1rem;
+            align-items: center;
+        }
+
+        .service-image img {
+            width: 80%;
+            height: 80%;
+            border-radius: 1rem;
+            object-fit: cover;
+        }
+
+/* mobile responsive */
+@media (max-width: 768px) {
+    .service-item {
+        grid-template-columns: 1fr;
+    }
+}
+
         nav.open {
             display: flex;
             flex-direction: column;
@@ -275,111 +334,211 @@
             padding: 1rem;
             border-radius: 0.5rem;
         }
+
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <nav>
         <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="image/logo/logo_long.png" alt="Penorchi" style="max-height: 65px; width: auto;">
-                </a>
-                <nav id="navMenu">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <button class="mobile-menu-btn">☰</button>
+            <div class="nav-content">
+                <img src="image/logo/logo_long.png" alt="Penorchi Logo" style="max-height: 80px;width: auto;">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-penorchi.html">Why Penorchi</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Our Services</h1>
-                <p>Comprehensive marketing solutions tailored to your B2B needs</p>
+        <div class="container">
+            <div class="page-header">
+                <h1>We can <span style="color: var(--primary);">Support</span></h1>
+                <p>Comprehensive end-to-end marketing solutions designed specifically for B2B companies and startups looking to scale affordably.</p>
             </div>
-        </section>
 
-        <!-- Service 1: Exhibition Coordination -->
-        <section class="service-section">
-            <div class="container">
-                <div class="service-grid">
+            <div class="services-section">
+                <h2>Core <span class="highlight">Services</span></h2>
+
+                <div class="service-item">
+
+                    <div class="service-image">
+                        <img src="image/service/digital.webp" alt="LinkedIn Marketing">
+                    </div>
+
                     <div class="service-content">
-                        <h2>Exhibition Coordination</h2>
-                        <p>From pre-event planning to on-site execution, we support every stage of your exhibition presence—including video filming, booth design, and marketing materials. We ensure your brand shows up professionally without the complexity of managing multiple vendors.</p>
-                        <div class="service-result">
-                            <h3>Result</h3>
-                            <p>A well-organized, high-impact exhibition presence that attracts attention, generates leads, and maximizes your return on event investment.</p>
+                        <div class="service-header">
+                            <div class="service-icon">🔗</div>
+                            <h3>LinkedIn Digital Marketing</h3>
+                        </div>
+
+                        <p>Strategic LinkedIn campaigns to build your professional brand, generate qualified leads, and establish thought leadership in your industry.</p>
+
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>Profile optimization and branding</li>
+                                <li>Content strategy and posting schedule</li>
+                                <li>LinkedIn advertising campaigns</li>
+                                <li>Lead generation and nurturing</li>
+                                <li>Analytics and performance tracking</li>
+                                <li>Thought leadership positioning</li>
+                            </ul>
                         </div>
                     </div>
+
+                </div>
+
+                <div class="service-item">
+
+                    <div class="service-image">
+                        <img src="image/service/ex_video.png" alt="Exhibition Marketing Videos">
+                    </div>
+
+                    <div class="service-content">
+                        <div class="service-header">
+                            <div class="service-icon">🎬</div>
+                            <h3>Exhibition Marketing Videos</h3>
+                        </div>
+
+                    <p>Compelling video content specifically designed for exhibitions. From concept to final edit, we capture your brand story in cinematic quality.</p>
+                    
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                            <li>Pre-production planning and storyboarding</li>
+                            <li>Professional video shooting</li>
+                            <li>Multi-camera setups for dynamic content</li>
+                            <li>Editing and color grading</li>
+                            <li>Motion graphics and animations</li>
+                            <li>Delivery in multiple formats</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+
                     <div class="service-image">
                         <img src="image/service/exhibition.webp" alt="Exhibition Coordination">
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Service 2: Digital Marketing -->
-        <section class="service-section">
-            <div class="container">
-                <div class="service-grid">
                     <div class="service-content">
-                        <h2>Digital Marketing</h2>
-                        <p>We help build and strengthen your LinkedIn presence through tailored strategies, content creation, and ongoing optimization. Our approach focuses on reaching the right audience and positioning your brand with clarity and consistency.</p>
-                        <div class="service-result">
-                            <h3>Result</h3>
-                            <p>Increased visibility, stronger brand credibility, and meaningful engagement with your target B2B audience.</p>
+                        <div class="service-header">
+                            <div class="service-icon">📍</div>
+                            <h3>Exhibition Coordination & Support</h3>
+                        </div>
+
+                    <p>End-to-end exhibition support including planning, booth design, material production, and on-site coordination for maximum impact.</p>
+                    
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                            <li>Exhibition strategy and planning</li>
+                            <li>Booth design and layout</li>
+                            <li>Marketing material production</li>
+                            <li>Pre-event promotion</li>
+                            <li>On-site coordination</li>
+                            <li>Post-event analysis and reporting</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
+
+                <div class="service-item">
+
                     <div class="service-image">
-                        <img src="image/service/digital.webp" alt="Digital Marketing">
+                        <img src="image/service/video.webp" alt="Expert Interview Shooting">
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Service 3: Video & Photography -->
-        <section class="service-section">
-            <div class="container">
-                <div class="service-grid">
                     <div class="service-content">
-                        <h2>Video & Photography</h2>
-                        <p>From expert interviews to product showcases and event coverage, we deliver professional video and photography that captures your brand story. Our team handles shooting, editing, and post-production to ensure high-quality output.</p>
-                        <div class="service-result">
-                            <h3>Result</h3>
-                            <p>Compelling visual content that enhances your brand image and can be reused across digital channels, presentations, and campaigns.</p>
+                        <div class="service-header">
+                            <div class="service-icon">🎤</div>
+                            <h3>Expert Interview Shooting</h3>
+                        </div>
+
+                    <p>Professional video interviews with industry experts and thought leaders to build credibility and engage your audience.</p>
+                    
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                            <li>Interview planning and preparation</li>
+                            <li>Professional lighting and audio setup</li>
+                            <li>Multi-camera recording</li>
+                            <li>Post-production editing</li>
+                            <li>Subtitle and caption creation</li>
+                            <li>Distribution-ready formats</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="service-image">
-                        <img src="image/service/video.webp" alt="Video & Photography">
-                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Service 4: Marketing Material Design -->
-        <section class="service-section">
-            <div class="container">
-                <div class="service-grid">
-                    <div class="service-content">
-                        <h2>Marketing Material Design</h2>
-                        <p>We design booth visuals, brochures, and other marketing assets tailored to your brand and objectives. Every piece is created to communicate your message clearly and support your sales efforts.</p>
-                        <div class="service-result">
-                            <h3>Result</h3>
-                            <p>Cohesive, professional materials that strengthen brand recognition and help your team communicate more effectively with potential clients.</p>
-                        </div>
-                    </div>
+                <div class="service-item">
+
                     <div class="service-image">
                         <img src="image/service/design.webp" alt="Marketing Material Design">
                     </div>
+
+                    <div class="service-content">
+                        <div class="service-header">
+                            <div class="service-icon">⚡</div>
+                            <h3>Marketing Material Design</h3>
+                        </div>
+
+                    <p>Professionally designed marketing materials that strengthen your brand identity, communicate value clearly, and support both online and offline campaigns to attract and convert customers.</p>
+                    
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                            <li>Brand-aligned brochure and flyer design</li>
+                            <li>Exhibition booth visuals and roll-up banners</li>
+                            <li>Digital ads and social media creatives</li>
+                            <li>Sales presentations and pitch decks</li>
+                            <li>Print-ready and digital-ready file formats</li>
+                            <li>Consistent visual identity across all materials</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="service-item">
+
+                    <div class="service-image">
+                        <img src="image/service/photo.png" alt="Professional Photography">
+                    </div>
+
+                    <div class="service-content">
+                        <div class="service-header">
+                            <div class="service-icon">📷</div>
+                            <h3>Professional Photography</h3>
+                        </div>
+
+                    <p>High-quality product and event photography that showcases your brand in the best light for marketing materials and exhibitions.</p>
+                    
+                        <div class="service-details">
+                            <h4>What's Included</h4>
+                            <ul>
+                            <li>Product photography</li>
+                            <li>Event coverage</li>
+                            <li>Corporate headshots</li>
+                            <li>Booth photography</li>
+                            <li>Photo editing and retouching</li>
+                            <li>High-resolution deliverables</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="cta-section">
+                <h2>Ready to Transform Your Marketing?</h2>
+                <p>Let's discuss how Penorchi can help you achieve your marketing goals with affordable, comprehensive solutions.</p>
+                <a href="contact.html" class="btn">Get In Touch</a>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -405,6 +564,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="why-penorchi.html">Why Penorchi</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
